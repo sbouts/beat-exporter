@@ -217,7 +217,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "acm", "request_count"),
-					"apm-server.acm.request",
+					"apm-server.acm.request.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Sourcemap.Request.Count },
@@ -226,7 +226,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "acm", "response_count"),
-					"apm-server.acm.response",
+					"apm-server.acm.response.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Acm.Response.Count },
@@ -416,7 +416,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "decoder", "deflate_count"),
-					"apm-server.decoder.deflate",
+					"apm-server.decoder.deflate.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Decoder.Deflate.Count },
@@ -434,7 +434,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "decoder", "gzip_count"),
-					"apm-server.decoder.gzip",
+					"apm-server.decoder.gzip.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Decoder.Gzip.Count },
@@ -443,7 +443,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "decoder", "missing_content_length_count"),
-					"apm-server.decoder.missing-content-length",
+					"apm-server.decoder.missing-content-length.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Decoder.MissingContentLength.Count },
@@ -452,7 +452,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "decoder", "reader_count"),
-					"apm-server.decoder.reader",
+					"apm-server.decoder.reader.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Decoder.Reader.Count },
@@ -470,7 +470,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "decoder", "uncompressed_count"),
-					"apm-server.decoder.uncompressed",
+					"apm-server.decoder.uncompressed.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Decoder.Uncompressed.Count },
@@ -480,7 +480,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "jaeger", "grpc_collect_event_dropped_count"),
-					"apm-server.jaeger.grpc.collect.event.dropped",
+					"apm-server.jaeger.grpc.collect.event.dropped.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Jaeger.Grpc.Collect.Event.Dropped.Count },
@@ -489,7 +489,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "jaeger", "grpc_collect_event_received_count"),
-					"apm-server.jaeger.grpc.collect.event.received",
+					"apm-server.jaeger.grpc.collect.event.received.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Jaeger.Grpc.Collect.Event.Received.Count },
@@ -498,7 +498,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "jaeger", "grpc_collect_request_count"),
-					"apm-server.jaeger.grpc.collect.request",
+					"apm-server.jaeger.grpc.collect.request.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Jaeger.Grpc.Collect.Request.Count },
@@ -507,7 +507,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "jaeger", "grpc_collect_response_count"),
-					"apm-server.jaeger.grpc.collect.response",
+					"apm-server.jaeger.grpc.collect.response.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Jaeger.Grpc.Collect.Response.Count },
@@ -516,7 +516,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "jaeger", "grpc_collect_response_errors_count"),
-					"apm-server.jaeger.grpc.collect.response.errors",
+					"apm-server.jaeger.grpc.collect.response.errors.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Jaeger.Grpc.Collect.Response.Errors.Count },
@@ -525,7 +525,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "jaeger", "grpc_collect_response_valid_count"),
-					"apm-server.jaeger.grpc.collect.response.valid",
+					"apm-server.jaeger.grpc.collect.response.valid.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Jaeger.Grpc.Collect.Response.Valid.Count },
@@ -534,7 +534,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "jaeger", "grpc_sampling_event_dropped_count"),
-					"apm-server.jaeger.grpc.sampling.event.dropped",
+					"apm-server.jaeger.grpc.sampling.event.dropped.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Jaeger.Grpc.Sampling.Event.Dropped.Count },
@@ -543,7 +543,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "jaeger", "grpc_sampling_event_received_count"),
-					"apm-server.jaeger.grpc.sampling.event.received",
+					"apm-server.jaeger.grpc.sampling.event.received.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Jaeger.Grpc.Sampling.Event.Received.Count },
@@ -552,7 +552,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "jaeger", "grpc_sampling_request_count"),
-					"apm-server.jaeger.grpc.sampling.request",
+					"apm-server.jaeger.grpc.sampling.request.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Jaeger.Grpc.Sampling.Request.Count },
@@ -561,7 +561,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "jaeger", "grpc_sampling_response_count"),
-					"apm-server.jaeger.grpc.sampling.response",
+					"apm-server.jaeger.grpc.sampling.response.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Jaeger.Grpc.Sampling.Response.Count },
@@ -570,7 +570,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "jaeger", "grpc_sampling_response_errors_count"),
-					"apm-server.jaeger.grpc.sampling.response.errors",
+					"apm-server.jaeger.grpc.sampling.response.errors.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Jaeger.Grpc.Sampling.Response.Errors.Count },
@@ -579,7 +579,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "jaeger", "grpc_sampling_response_valid_count"),
-					"apm-server.jaeger.grpc.sampling.response.valid",
+					"apm-server.jaeger.grpc.sampling.response.valid.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Jaeger.Grpc.Sampling.Response.Valid.Count },
@@ -588,7 +588,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "jaeger", "http_event_dropped_count"),
-					"apm-server.jaeger.http.event.dropped",
+					"apm-server.jaeger.http.event.dropped.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Jaeger.HTTP.Event.Dropped.Count },
@@ -597,7 +597,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "jaeger", "http_event_received_count"),
-					"apm-server.jaeger.http.received.dropped",
+					"apm-server.jaeger.http.received.dropped.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Jaeger.HTTP.Event.Received.Count },
@@ -606,7 +606,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "jaeger", "http_request_count"),
-					"apm-server.jaeger.http.request",
+					"apm-server.jaeger.http.request.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Jaeger.HTTP.Request.Count },
@@ -615,7 +615,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "jaeger", "http_response_count"),
-					"apm-server.jaeger.http.response",
+					"apm-server.jaeger.http.response.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Jaeger.HTTP.Response.Count },
@@ -624,7 +624,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "jaeger", "http_response_errors_count"),
-					"apm-server.jaeger.http.response.errors",
+					"apm-server.jaeger.http.response.errors.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Jaeger.HTTP.Response.Errors.Count },
@@ -633,7 +633,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "jaeger", "http_response_valid_count"),
-					"apm-server.jaeger.http.response.valid",
+					"apm-server.jaeger.http.response.valid.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Jaeger.HTTP.Response.Valid.Count },
@@ -670,7 +670,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "processor", "metric_transformations"),
-					"apm-server.processor.metric",
+					"apm-server.processor.metric.transformations",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Processor.Metric.Transformations },
@@ -679,7 +679,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "processor", "sourcemap_counter"),
-					"apm-server.processor.sourcemap",
+					"apm-server.processor.sourcemap.counter",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Processor.Sourcemap.Counter },
@@ -752,7 +752,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "processor", "stream_accepted"),
-					"apm-server.processor.stream",
+					"apm-server.processor.stream.accepted",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Processor.Stream.Accepted },
@@ -805,8 +805,8 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			},
 			{
 				desc: prometheus.NewDesc(
-					prometheus.BuildFQName(beatInfo.Beat, "processor", "transaction"),
-					"apm-server.processor.stream.transaction",
+					prometheus.BuildFQName(beatInfo.Beat, "processor", "transaction_transformations"),
+					"apm-server.processor.stream.transaction.transformations",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Processor.Transaction.Transformations },
@@ -816,7 +816,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "profile", "request_count"),
-					"apm-server.profile.request",
+					"apm-server.profile.request.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Profile.Request.Count },
@@ -825,7 +825,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "profile", "response_count"),
-					"apm-server.profile.response",
+					"apm-server.profile.response.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Profile.Response.Count },
@@ -1006,7 +1006,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "root", "request_count"),
-					"apm-server.root.request",
+					"apm-server.root.request.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Root.Request.Count },
@@ -1015,7 +1015,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "root", "response_count"),
-					"apm-server.root.response",
+					"apm-server.root.response.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Root.Response.Count },
@@ -1206,7 +1206,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "server", "request_count"),
-					"apm-server.server.request",
+					"apm-server.server.request.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Server.Request.Count },
@@ -1215,7 +1215,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "server", "response_count"),
-					"apm-server.server.response",
+					"apm-server.server.response.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Server.Response.Count },
@@ -1396,7 +1396,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "sourcemap", "request_count"),
-					"apm-server.sourcemap.request",
+					"apm-server.sourcemap.request.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Sourcemap.Request.Count },
@@ -1405,7 +1405,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			{
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "sourcemap", "response_count"),
-					"apm-server.sourcemap.response",
+					"apm-server.sourcemap.response.count",
 					nil, nil,
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Sourcemap.Response.Count },
