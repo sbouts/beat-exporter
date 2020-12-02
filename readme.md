@@ -12,6 +12,7 @@ Current coverage
  * metricbeat
  * packetbeat - _partial_
  * auditbeat - _partial_
+ * apm-server
 
 Setup
 -
