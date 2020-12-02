@@ -89,6 +89,8 @@ func (b *mainCollector) Describe(ch chan<- *prometheus.Desc) {
 		b.Collectors["registrar"].Describe(ch)
 	case "metricbeat":
 		b.Collectors["metricbeat"].Describe(ch)
+	case "apmserver":
+		b.Collectors["apmserver"].Describe(ch)
 	}
 
 }
