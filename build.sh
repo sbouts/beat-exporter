@@ -25,6 +25,10 @@ LDFLAGS="-s -X github.com/prometheus/common/version.Version=${GITVERSION} \
 for OS in "darwin" "linux" "windows"; do
     for ARCH in "amd64" "386"; do 
         echo "Building ${OS}/${ARCH} with version: ${GITVERSION}, revision: ${GITREVISION}, buildUser: ${GITHUB_ACTOR}"
+        if [[ $OS == "darwin" && $ARCH == "386" ]]; then
+            echo "'darwin/386' support removed in Go 1.15"
+            continue
+        fi
         if [[ $OS == "windows" ]]; then
             GO111MODULE=on CGO_ENABLED=0 GOOS=${OS} GOARCH=${ARCH} go build -ldflags "${LDFLAGS}" -tags 'netgo static_build' -a -o ".build/${OS}-${ARCH}/beat-exporter.exe"
         else 
