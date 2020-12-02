@@ -22,6 +22,7 @@ type Stats struct {
 	Filebeat   Filebeat    `json:"filebeat"`
 	Metricbeat Metricbeat  `json:"metricbeat"`
 	Auditd     AuditdStats `json:"auditd"`
+	Apmserver  Apmserver   `json:"apm-server"`
 }
 
 type exportedMetrics []struct {

@@ -213,6 +213,9 @@ func loadBeatType(client *http.Client, url url.URL) (*collector.BeatInfo, error)
 		return beatInfo, err
 	}
 
+	// Remove '-' from beatname
+	beatInfo.Beat = strings.ReplaceAll(beatInfo.Beat, "-", "")
+
 	log.WithFields(
 		log.Fields{
 			"beat":     beatInfo.Beat,

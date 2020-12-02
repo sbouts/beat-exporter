@@ -60,6 +60,7 @@ func NewMainCollector(client *http.Client, url *url.URL, name string, beatInfo *
 	beat.Collectors["filebeat"] = NewFilebeatCollector(beatInfo, beat.Stats)
 	beat.Collectors["metricbeat"] = NewMetricbeatCollector(beatInfo, beat.Stats)
 	beat.Collectors["auditd"] = NewAuditdCollector(beatInfo, beat.Stats)
+	beat.Collectors["apmserver"] = NewApmserverCollector(beatInfo, beat.Stats)
 
 	return beat
 }
@@ -124,6 +125,8 @@ func (b *mainCollector) Collect(ch chan<- prometheus.Metric) {
 		b.Collectors["registrar"].Collect(ch)
 	case "metricbeat":
 		b.Collectors["metricbeat"].Collect(ch)
+	case "apmserver":
+		b.Collectors["apmserver"].Collect(ch)
 	}
 
 }
