@@ -1538,8 +1538,8 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			},
 			{
 				desc: prometheus.NewDesc(
-					prometheus.BuildFQName(beatInfo.Beat, "sourcemap", "response"),
-					"apm-server.sourcemap.response",
+					prometheus.BuildFQName(beatInfo.Beat, "sourcemap", "response_valid"),
+					"apm-server.sourcemap.response.valid",
 					nil, prometheus.Labels{"valid": "accepted"},
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Sourcemap.Response.Valid.Accepted },
@@ -1547,8 +1547,8 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			},
 			{
 				desc: prometheus.NewDesc(
-					prometheus.BuildFQName(beatInfo.Beat, "sourcemap", "response"),
-					"apm-server.sourcemap.response",
+					prometheus.BuildFQName(beatInfo.Beat, "sourcemap", "response_valid"),
+					"apm-server.sourcemap.response.valid",
 					nil, prometheus.Labels{"valid": "count"},
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Sourcemap.Response.Valid.Count },
@@ -1556,8 +1556,8 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			},
 			{
 				desc: prometheus.NewDesc(
-					prometheus.BuildFQName(beatInfo.Beat, "sourcemap", "response"),
-					"apm-server.sourcemap.response",
+					prometheus.BuildFQName(beatInfo.Beat, "sourcemap", "response_valid"),
+					"apm-server.sourcemap.response.valid",
 					nil, prometheus.Labels{"valid": "notmodified"},
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Sourcemap.Response.Valid.Notmodified },
@@ -1565,8 +1565,8 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 			},
 			{
 				desc: prometheus.NewDesc(
-					prometheus.BuildFQName(beatInfo.Beat, "sourcemap", "response"),
-					"apm-server.sourcemap.response",
+					prometheus.BuildFQName(beatInfo.Beat, "sourcemap", "response_valid"),
+					"apm-server.sourcemap.response.valid",
 					nil, prometheus.Labels{"valid": "ok"},
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Sourcemap.Response.Valid.Ok },
