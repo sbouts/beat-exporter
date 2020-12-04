@@ -1540,16 +1540,16 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "sourcemap", "response_valid"),
 					"apm-server.sourcemap.response.valid",
-					nil, prometheus.Labels{"valid": "accepted"},
+					nil, prometheus.Labels{"status": "accepted"},
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Sourcemap.Response.Valid.Accepted },
 				valType: prometheus.CounterValue,
 			},
 			{
 				desc: prometheus.NewDesc(
-					prometheus.BuildFQName(beatInfo.Beat, "sourcemap", "response_valid"),
-					"apm-server.sourcemap.response.valid",
-					nil, prometheus.Labels{"valid": "count"},
+					prometheus.BuildFQName(beatInfo.Beat, "sourcemap", "response_valid_count"),
+					"apm-server.sourcemap.response.valid.count",
+					nil, prometheus.Labels{"status": "count"},
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Sourcemap.Response.Valid.Count },
 				valType: prometheus.CounterValue,
@@ -1558,7 +1558,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "sourcemap", "response_valid"),
 					"apm-server.sourcemap.response.valid",
-					nil, prometheus.Labels{"valid": "notmodified"},
+					nil, prometheus.Labels{"status": "notmodified"},
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Sourcemap.Response.Valid.Notmodified },
 				valType: prometheus.CounterValue,
@@ -1567,7 +1567,7 @@ func NewApmserverCollector(beatInfo *BeatInfo, stats *Stats) prometheus.Collecto
 				desc: prometheus.NewDesc(
 					prometheus.BuildFQName(beatInfo.Beat, "sourcemap", "response_valid"),
 					"apm-server.sourcemap.response.valid",
-					nil, prometheus.Labels{"valid": "ok"},
+					nil, prometheus.Labels{"status": "ok"},
 				),
 				eval:    func(stats *Stats) float64 { return stats.Apmserver.Sourcemap.Response.Valid.Ok },
 				valType: prometheus.CounterValue,
